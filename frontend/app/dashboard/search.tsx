@@ -145,7 +145,7 @@ export default function SearchPage() {
                     Video clip display
                   */}
                   <video
-                    src={`http://localhost:8000/uploaded_videos/${res.video_name}.mp4#t=${start},${end}`}
+                    src={`http://localhost:8000/video_segment/${res.video_name}?start=${start}&end=${end}`}
                     controls
                     className="w-full mt-3 rounded-lg border border-gray-300 bg-black"
                   />

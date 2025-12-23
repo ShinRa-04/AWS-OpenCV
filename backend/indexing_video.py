@@ -8,7 +8,9 @@ import tensorflow as tf
 import joblib
 import requests
 from datetime import datetime
-from fastapi import FastAPI, UploadFile, File, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException
+from fastapi.responses import FileResponse
+import subprocess
 from fastapi.middleware.cors import CORSMiddleware
 from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.preprocessing import image
@@ -43,8 +45,9 @@ MODEL_NAME_FLASH = 'gemini-2.5-flash'
 
 UPLOAD_FOLDER = "uploaded_videos"
 ANOMALY_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "anomaly")
+TEMP_SEGMENTS_FOLDER = os.path.join(UPLOAD_FOLDER, "segments")
 
-for folder in [UPLOAD_FOLDER, ANOMALY_FOLDER]:
+for folder in [UPLOAD_FOLDER, ANOMALY_FOLDER, TEMP_SEGMENTS_FOLDER]:
     if not os.path.exists(folder):
         os.makedirs(folder)
 
@@ -717,6 +720,62 @@ async def process_video(background_tasks: BackgroundTasks, file: UploadFile = Fi
     background_tasks.add_task(process_video_task, file_path)
     
     return {"message": "Video uploaded and processing started.", "filename": file.filename}
+
+@app.get("/video_segment/{video_name}")
+async def get_video_segment(video_name: str, start: float, end: float):
+    """
+    Trims a video on demand and returns the segment.
+    """
+    if start < 0 or end <= start:
+        raise HTTPException(status_code=400, detail="Invalid time range")
+
+    # Check original video existence
+    video_path = None
+    for ext in ['.mp4', '.avi', '.mov', '.mkv', '.webm']:
+        potential_path = os.path.join(UPLOAD_FOLDER, f"{video_name}{ext}")
+        if os.path.exists(potential_path):
+            video_path = potential_path
+            break
+    
+    if not video_path:
+        raise HTTPException(status_code=404, detail="Original video not found")
+
+    # Create distinct filename for this segment
+    segment_filename = f"{video_name}_{start:.1f}_{end:.1f}.mp4"
+    segment_path = os.path.join(TEMP_SEGMENTS_FOLDER, segment_filename)
+
+    # If segment already exists, serve it
+    if os.path.exists(segment_path):
+        return FileResponse(segment_path, media_type="video/mp4")
+
+    # Trim using ffmpeg
+    try:
+        # ffmpeg -ss {start} -to {end} -i {input} -c copy {output}
+        # Note: placing -ss before -i is faster (input seeking)
+        command = [
+            "ffmpeg",
+            "-y", # Overwrite if exists
+            "-ss", str(start),
+            "-to", str(end),
+            "-i", video_path,
+            "-c:v", "libx264", # Re-encode to ensure compatibility and correct timestamps
+            "-c:a", "aac",
+            "-strict", "experimental",
+            segment_path
+        ]
+        
+        # Use subprocess to run ffmpeg
+        result = subprocess.run(command, capture_output=True, text=True)
+        
+        if result.returncode != 0:
+            print(f"FFmpeg error: {result.stderr}")
+            raise HTTPException(status_code=500, detail="Video processing failed")
+            
+        return FileResponse(segment_path, media_type="video/mp4")
+        
+    except Exception as e:
+        print(f"Error trimming video: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
