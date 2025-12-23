@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-dotenv
+python-multipart
+opencv-python
+google-generativeai
+twilio
+faiss-cpu
+sentence-transformers
+transformers
+huggingface-hub
+ffmpeg-python
+numpy<2.0.0
+# Core ML libraries
+tensorflow
+torch --index-url https://download.pytorch.org/whl/cu118
+toposort
