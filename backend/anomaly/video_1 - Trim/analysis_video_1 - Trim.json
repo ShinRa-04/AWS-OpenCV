@@ -1,0 +1,78 @@
+{
+    "video_metadata": {
+        "filename": "video_1 - Trim.mp4",
+        "total_duration": 10.873333333333333,
+        "total_chunks": 2,
+        "chunk_duration": 10,
+        "anomalous_chunks_count": 2
+    },
+    "anomalous_chunks": [
+        {
+            "overall_scene": {
+                "location": "An urban street corner with a wide, paved sidewalk in front of a commercial building.",
+                "time_of_day": "Night",
+                "people_count": 3,
+                "objects_detected": [
+                    "sidewalk",
+                    "street",
+                    "building",
+                    "trash can",
+                    "streetlights",
+                    "car"
+                ],
+                "activity_summary": "Three individuals are walking, one person is pushed or falls to the ground and becomes incapacitated. One of the companions returns to lift and move the fallen person.",
+                "description": "The surveillance footage, recorded at approximately 3:45 AM, captures a scene on a well-lit street corner. Three individuals are initially seen walking together on the sidewalk. A brief physical interaction occurs, causing one individual to fall heavily to the ground. The other two initially continue walking away, but one person, wearing a dark jacket, quickly returns to the fallen individual. The footage ends as this person attempts to lift the apparently unresponsive body from the sidewalk.",
+                "actors": [
+                    "Fallen individual (victim)",
+                    "Individual who returns to lift the victim",
+                    "Third individual who walks away"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "0.0s - 10.0s",
+                "anomaly_reason": "The sequence was flagged due to a sudden act of violence or altercation resulting in one person being incapacitated on the ground. The subsequent action of a companion returning to lift and move the unresponsive person is highly suspicious and could indicate an assault, abduction, or an attempt to move an injured or deceased person from the scene."
+            },
+            "chunk_metadata": {
+                "chunk_index": 0,
+                "start_time": 0.0,
+                "end_time": 9.975535168195718,
+                "duration": 9.975535168195718
+            }
+        },
+        {
+            "overall_scene": {
+                "location": "A street corner in a commercial or town area, outside of a building with a storefront.",
+                "time_of_day": "Night / Early Morning",
+                "people_count": 1,
+                "objects_detected": [
+                    "person",
+                    "building",
+                    "sidewalk",
+                    "road",
+                    "streetlights",
+                    "trash can",
+                    "parked cars",
+                    "large white object (resembling a cash register)"
+                ],
+                "activity_summary": "A single individual is walking quickly away from a building while carrying a large, heavy-looking white object.",
+                "description": "The surveillance footage, captured at approximately 02:45 AM on Sunday, October 4th, 2015, according to the timestamp, depicts an outdoor scene at a street corner. The area is dark, illuminated by artificial street and building lights. A single person, wearing a dark jacket and pants, is moving with urgency along a paved sidewalk, away from the building on the left. This individual is carrying a large, white, boxy object that appears to be a cash register or a small safe. The person's posture and quick pace suggest they are fleeing the scene. The background shows a quiet street with other buildings and parked vehicles.",
+                "actors": [
+                    "Person in a dark jacket and pants"
+                ],
+                "suspicious_objects": [
+                    "Large white box-like object (resembling a cash register or safe)"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "10.0s - 10.9s",
+                "anomaly_reason": "An individual is observed moving hurriedly from a commercial property during late-night hours (02:45 AM) while carrying an object consistent in size and shape with a cash register or safe. This combination of time, action, and object is highly indicative of a recent burglary or theft."
+            },
+            "chunk_metadata": {
+                "chunk_index": 1,
+                "start_time": 9.975535168195718,
+                "end_time": 10.873333333333333,
+                "duration": 0.8977981651376155
+            }
+        }
+    ],
+    "summary": "A 10.9-second video analysis detected two high-criticality suspicious incidents. The first incident, occurring between 0.0s-10.0s, involved three individuals where one was pushed or fell to the ground and became incapacitated, requiring a companion to assist in lifting and moving them. Subsequently, between 10.0s-10.9s, a single individual was observed walking quickly away from a building while carrying a large, heavy-looking white object."
+}

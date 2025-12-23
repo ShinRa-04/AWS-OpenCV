@@ -6,6 +6,7 @@ import json
 import numpy as np
 import tensorflow as tf
 import joblib
+import requests
 from datetime import datetime
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
@@ -263,13 +264,58 @@ async def get_processing_status(video_name: str):
         "ready": False
     }
 
+@app.get("/summary/{video_name}")
+async def get_video_summary(video_name: str):
+    """Get the summary for a specific video for the Alert page"""
+    video_anomaly_folder = os.path.join(ANOMALY_FOLDER, video_name)
+    analysis_filename = f"analysis_{video_name}.json"
+    analysis_path = os.path.join(video_anomaly_folder, analysis_filename)
+    # Check if analysis exists
+    if not os.path.exists(analysis_path):
+        return {"status": "not_found", "message": "Video analysis not found"}
+    
+    try:
+        with open(analysis_path, 'r') as f:
+            analysis_data = json.load(f)
+        
+        summary_content = analysis_data.get("summary")
+        
+        # Check if summary has real content
+        if (summary_content and 
+            len(summary_content) > 50 and  # Must be substantial content
+            "being generated" not in summary_content.lower() and
+            "generating" not in summary_content.lower() and
+            "not available" not in summary_content.lower()):
+            
+            video_metadata = analysis_data.get("video_metadata", {})
+            anomalous_chunks_count = len(analysis_data.get("anomalous_chunks", []))
+            
+            return {
+                "status": "complete",
+                "video_name": video_name,
+                "summary": summary_content,
+                "metadata": video_metadata,
+                "anomalous_chunks_count": anomalous_chunks_count
+            }
+            
+        else:
+             # Summary not ready yet or invalid
+            return {
+                "status": "processing",
+                "message": "Analysis complete, summary generation in progress"
+            }
+            
+    except Exception as e:
+        return {
+            "status": "error", 
+            "message": f"Error reading analysis: {str(e)}"
+        }
+
 @app.get("/analysis/{video_name}")
 async def get_analysis(video_name: str):
     video_anomaly_folder = os.path.join(ANOMALY_FOLDER, video_name)
     analysis_filename = f"analysis_{video_name}.json"
     analysis_path = os.path.join(video_anomaly_folder, analysis_filename)
-    summary_filename = f"summary_{video_name}.txt"
-    summary_path = os.path.join(video_anomaly_folder, summary_filename)
     status_file = os.path.join(video_anomaly_folder, "processing_status.json")
     
     # First, check if analysis file exists and is complete
@@ -283,25 +329,27 @@ async def get_analysis(video_name: str):
                 "anomalous_chunks" in analysis_data and
                 isinstance(analysis_data.get("anomalous_chunks"), list)):
                 
-                # Try to read pre-generated summary
-                summary = "Summary not available"
-                if os.path.exists(summary_path):
-                    try:
-                        with open(summary_path, 'r') as f:
-                            summary = f.read().strip()
-                    except Exception as e:
-                        print(f"Error reading summary file: {e}")
-                        summary = "Summary file exists but could not be read"
-                else:
-                    # Summary file doesn't exist yet - might still be generating
-                    summary = "Summary is being generated..."
+                # Retrieve summary directly from JSON
+                summary = analysis_data.get("summary")
                 
-                return {
-                    "status": "complete",
-                    "analysis": analysis_data,
-                    "summary": summary,
-                    "message": "Analysis completed successfully"
-                }
+                # Check directly if summary exists in the JSON
+                if summary:
+                    response = {
+                        "status": "complete",
+                        "analysis": analysis_data,
+                        "summary": summary,
+                        "message": "Analysis and summary completed successfully"
+                    }
+                    return response
+                else:
+                    # If summary is missing from JSON (legacy files or generation failed)
+                    # We can try to generate it on the fly or just return what we have?
+                    # For now, let's Stick to the plan: if it's missing, it's processing or old format.
+                    return {
+                        "status": "processing",
+                        "message": "Analysis complete, summary generation pending...",
+                        "progress": 98
+                    }
             else:
                 # JSON exists but is incomplete
                 return {
@@ -574,71 +622,71 @@ def process_video_task(video_path: str):
         # Save combined analysis to single JSON file
         update_status("finalizing", "Generating final analysis report", 85)
         
-        if all_analyses:
-            combined_analysis = {
-                "video_metadata": {
-                    "filename": video_filename,
-                    "total_duration": video_duration,
-                    "total_chunks": total_chunks,
-                    "chunk_duration": CHUNK_DURATION_SECONDS,
-                    "anomalous_chunks_count": len(all_analyses)
-                },
-                "anomalous_chunks": all_analyses
-            }
-            
-            print(f"Creating analysis JSON with {len(all_analyses)} anomalous chunks")
-            update_status("complete", f"Analysis complete - found anomalies in {len(all_analyses)} out of {total_chunks} chunks", 100)
-        else:
-            # Create analysis file even when no anomalies are found
-            combined_analysis = {
-                "video_metadata": {
-                    "filename": video_filename,
-                    "total_duration": video_duration,
-                    "total_chunks": total_chunks,
-                    "chunk_duration": CHUNK_DURATION_SECONDS,
-                    "anomalous_chunks_count": 0
-                },
-                "anomalous_chunks": []
-            }
-            
-            print(f"No anomalies detected - creating empty analysis JSON")
-            update_status("complete", f"Analysis complete - no anomalies detected in {total_chunks} chunks", 100)
-        
-        # Write the analysis file atomically to prevent corruption
-        analysis_filename = f"analysis_{video_name}.json"
-        analysis_path = os.path.join(video_anomaly_folder, analysis_filename)
-        temp_path = analysis_path + ".tmp"
-        
+        # Prepare summary BEFORE saving analysis
+        print("Generating flash summary...")
+        final_summary = "Analysis complete."
         try:
+            # We need to construct a temporary object to pass to generate_flash_summary
+            # because combined_analysis isn't fully built yet in the original code flow
+            # (or we can build it first then add summary)
+            
+            # Let's build the base analysis object first
+            if all_analyses:
+                combined_analysis = {
+                    "video_metadata": {
+                        "filename": video_filename,
+                        "total_duration": video_duration,
+                        "total_chunks": total_chunks,
+                        "chunk_duration": CHUNK_DURATION_SECONDS,
+                        "anomalous_chunks_count": len(all_analyses)
+                    },
+                    "anomalous_chunks": all_analyses
+                }
+                
+                print(f"Creating analysis JSON with {len(all_analyses)} anomalous chunks")
+                update_status("complete", f"Analysis complete - found anomalies in {len(all_analyses)} out of {total_chunks} chunks", 95)
+            else:
+                combined_analysis = {
+                    "video_metadata": {
+                        "filename": video_filename,
+                        "total_duration": video_duration,
+                        "total_chunks": total_chunks,
+                        "chunk_duration": CHUNK_DURATION_SECONDS,
+                        "anomalous_chunks_count": 0
+                    },
+                    "anomalous_chunks": []
+                }
+                print(f"No anomalies detected - creating empty analysis JSON")
+                update_status("complete", f"Analysis complete - no anomalies detected in {total_chunks} chunks", 95)
+
+            # Generate summary based on this data
+            try:
+                final_summary = generate_flash_summary(combined_analysis)
+                print("Flash summary generated successfully")
+            except Exception as summary_error:
+                print(f"Summary generation failed, using fallback: {summary_error}")
+                if all_analyses:
+                    final_summary = f"Security Analysis Complete: {len(all_analyses)} high-priority incidents detected across {video_duration:.1f} seconds. Multiple physical altercations and potential weapons detected. Immediate security response recommended."
+                else:
+                    final_summary = f"Video analysis complete. No suspicious activities detected in {total_chunks} chunks spanning {video_duration:.1f} seconds."
+
+            # ADD SUMMARY TO JSON
+            combined_analysis["summary"] = final_summary
+            
+            # Write the analysis file atomically
+            analysis_filename = f"analysis_{video_name}.json"
+            analysis_path = os.path.join(video_anomaly_folder, analysis_filename)
+            temp_path = analysis_path + ".tmp"
+            
             with open(temp_path, 'w') as f:
                 json.dump(combined_analysis, f, indent=4)
             
-            # Atomic rename to prevent partial file reads
+            # Atomic rename
             os.rename(temp_path, analysis_path)
-            print(f"Analysis JSON saved successfully: {analysis_path}")
+            print(f"Analysis JSON (with summary) saved successfully: {analysis_path}")
             
-            # Generate summary AFTER analysis is saved
-            print("Generating flash summary...")
-            try:
-                summary = generate_flash_summary(combined_analysis)
-                
-                # Save summary to separate file
-                summary_filename = f"summary_{video_name}.txt"
-                summary_path = os.path.join(video_anomaly_folder, summary_filename)
-                with open(summary_path, 'w') as f:
-                    f.write(summary)
-                print(f"Summary saved: {summary_path}")
-                
-            except Exception as summary_error:
-                print(f"Summary generation failed, but analysis is complete: {summary_error}")
-                # Create a basic summary file anyway
-                summary_filename = f"summary_{video_name}.txt"
-                summary_path = os.path.join(video_anomaly_folder, summary_filename)
-                with open(summary_path, 'w') as f:
-                    if all_analyses:
-                        f.write(f"Security Analysis Complete: {len(all_analyses)} high-priority incidents detected across {video_duration:.1f} seconds. Multiple physical altercations and potential weapons detected. Immediate security response recommended.")
-                    else:
-                        f.write(f"Video analysis complete. No suspicious activities detected in {total_chunks} chunks spanning {video_duration:.1f} seconds.")
+            # Note: FAISS index will be updated automatically by the search service
+            print("✅ Video analysis complete. Search index will be updated automatically.")
             
         except Exception as e:
             print(f"Error saving analysis file: {e}")
