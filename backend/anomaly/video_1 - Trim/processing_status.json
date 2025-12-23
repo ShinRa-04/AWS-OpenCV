@@ -1,6 +1,6 @@
 {
-  "status": "analyzing",
-  "message": "AI analyzing anomaly in chunk 2/2",
-  "progress": 50.0,
-  "timestamp": "2025-12-23T14:55:31.816851"
+  "status": "error",
+  "message": "Processing failed: [WinError 183] Cannot create a file when that file already exists: 'C:\\\\Projects\\\\OpenSeeWe-SIH25197-Prototype-Website\\\\backend\\\\anomaly\\\\video_1 - Trim\\\\analysis_video_1 - Trim.json.tmp' -> 'C:\\\\Projects\\\\OpenSeeWe-SIH25197-Prototype-Website\\\\backend\\\\anomaly\\\\video_1 - Trim\\\\analysis_video_1 - Trim.json'",
+  "progress": 0,
+  "timestamp": "2025-12-23T15:35:33.848277"
 }

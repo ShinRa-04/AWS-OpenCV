@@ -1,0 +1,625 @@
+[
+    {
+        "source_video": "video_1",
+        "source_metadata": {
+            "filename": "video_1.mp4",
+            "total_duration": 28.166666666666668,
+            "total_chunks": 3,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 3
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "An outdoor street corner or intersection in a town or city, viewed from a surveillance camera mounted on a building.",
+                "time_of_day": "Night",
+                "people_count": 2,
+                "objects_detected": [
+                    "car",
+                    "street",
+                    "sidewalk",
+                    "trash can",
+                    "building",
+                    "streetlights",
+                    "road sign"
+                ],
+                "activity_summary": "A car drives by, followed by two individuals appearing on the far sidewalk. One individual violently assaults the other, knocking them to the ground.",
+                "description": "The surveillance footage, captured by 'Camera 05' during the pre-dawn hours of Sunday, October 4th, 2015, shows a street corner illuminated by artificial lighting. The scene is initially quiet, with a paved sidewalk and a trash can in the foreground. A dark vehicle passes through the intersection. Shortly after, two individuals appear on the sidewalk across the street. A physical altercation occurs, culminating in one person being forcefully pushed or struck, causing them to fall onto the pavement. The aggressor remains standing near the fallen individual.",
+                "actors": [
+                    "Assailant",
+                    "Victim"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "0.0s - 10.0s",
+                "anomaly_reason": "A violent physical altercation between two individuals was detected. One person is seen forcefully knocking the other to the ground, indicating a potential assault."
+            },
+            "chunk_metadata": {
+                "chunk_index": 0,
+                "start_time": 0.0,
+                "end_time": 10.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_1",
+        "source_metadata": {
+            "filename": "video_1.mp4",
+            "total_duration": 28.166666666666668,
+            "total_chunks": 3,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 3
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "A paved sidewalk next to a street corner in a commercial or town area, viewed from a camera mounted on a building.",
+                "time_of_day": "Night",
+                "people_count": 2,
+                "objects_detected": [
+                    "car",
+                    "streetlights",
+                    "building",
+                    "sidewalk",
+                    "road",
+                    "trash bin",
+                    "large rectangular object"
+                ],
+                "activity_summary": "Two individuals run along a sidewalk. One person stops, picks up a large, white rectangular object, and carries it away.",
+                "description": "The surveillance footage, captured at approximately 3:45 AM according to the on-screen timestamp, depicts a street corner illuminated by artificial lighting. Two individuals are initially observed running along the sidewalk. One person runs past the camera's field of view, while the second individual stops abruptly next to a large, white, rectangular object that appears to be leaning against a wall or bin. This individual then crouches, lifts the cumbersome object, and proceeds to carry it off-screen. The hurried nature of the actions at this time of night suggests a potential theft.",
+                "actors": [
+                    "Individual in dark jacket and pants",
+                    "Second individual in dark clothing"
+                ],
+                "suspicious_objects": [
+                    "large rectangular object (being stolen)"
+                ],
+                "critical_level": "Medium",
+                "chunk_time_range": "10.0s - 20.0s",
+                "anomaly_reason": "The sequence was flagged due to the unusual activity of individuals running in the early hours of the morning, followed by one person stopping to abruptly take a large object from a public/commercial space, which is highly indicative of a theft."
+            },
+            "chunk_metadata": {
+                "chunk_index": 1,
+                "start_time": 10.0,
+                "end_time": 20.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_1",
+        "source_metadata": {
+            "filename": "video_1.mp4",
+            "total_duration": 28.166666666666668,
+            "total_chunks": 3,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 3
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Sidewalk on an urban street corner, outside a commercial building.",
+                "time_of_day": "Night (timestamp indicates 03:45 AM)",
+                "people_count": 2,
+                "objects_detected": [
+                    "person",
+                    "box/sign",
+                    "trash can",
+                    "street",
+                    "crosswalk",
+                    "streetlights",
+                    "building",
+                    "car"
+                ],
+                "activity_summary": "A man carrying a large white object trips and falls on the sidewalk, then gets up and runs away, abandoning the object.",
+                "description": "The surveillance footage, captured by 'Camera 05' during the early morning hours of October 4, 2015, shows a street corner illuminated by artificial lighting. A man dressed in a dark suit is seen walking quickly along the sidewalk, carrying a large, white, rectangular object. He suddenly stumbles and falls to the ground, dropping the object. Instead of retrieving his possession, the man immediately gets back on his feet and flees the scene, running out of the camera's view. The white object is left abandoned on the pavement. Another individual is visible standing stationary across the street in the background.",
+                "actors": [
+                    "man in dark suit"
+                ],
+                "suspicious_objects": [
+                    "abandoned white box/object"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "20.0s - 28.2s",
+                "anomaly_reason": "An individual is observed running, falling, and then deliberately abandoning a package in a public area before fleeing the scene. This behavior is highly suspicious and raises concerns about the contents of the package, suggesting a potential security threat such as a bomb threat or the disposal of contraband."
+            },
+            "chunk_metadata": {
+                "chunk_index": 2,
+                "start_time": 20.0,
+                "end_time": 28.166666666666668,
+                "duration": 8.166666666666668
+            }
+        }
+    },
+    {
+        "source_video": "video_1 - Trim",
+        "source_metadata": {
+            "filename": "video_1 - Trim.mp4",
+            "total_duration": 10.873333333333333,
+            "total_chunks": 2,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 2
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "An urban street corner with a wide, paved sidewalk in front of a commercial building.",
+                "time_of_day": "Night",
+                "people_count": 3,
+                "objects_detected": [
+                    "sidewalk",
+                    "street",
+                    "building",
+                    "trash can",
+                    "streetlights",
+                    "car"
+                ],
+                "activity_summary": "Three individuals are walking, one person is pushed or falls to the ground and becomes incapacitated. One of the companions returns to lift and move the fallen person.",
+                "description": "The surveillance footage, recorded at approximately 3:45 AM, captures a scene on a well-lit street corner. Three individuals are initially seen walking together on the sidewalk. A brief physical interaction occurs, causing one individual to fall heavily to the ground. The other two initially continue walking away, but one person, wearing a dark jacket, quickly returns to the fallen individual. The footage ends as this person attempts to lift the apparently unresponsive body from the sidewalk.",
+                "actors": [
+                    "Fallen individual (victim)",
+                    "Individual who returns to lift the victim",
+                    "Third individual who walks away"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "0.0s - 10.0s",
+                "anomaly_reason": "The sequence was flagged due to a sudden act of violence or altercation resulting in one person being incapacitated on the ground. The subsequent action of a companion returning to lift and move the unresponsive person is highly suspicious and could indicate an assault, abduction, or an attempt to move an injured or deceased person from the scene."
+            },
+            "chunk_metadata": {
+                "chunk_index": 0,
+                "start_time": 0.0,
+                "end_time": 9.975535168195718,
+                "duration": 9.975535168195718
+            }
+        }
+    },
+    {
+        "source_video": "video_1 - Trim",
+        "source_metadata": {
+            "filename": "video_1 - Trim.mp4",
+            "total_duration": 10.873333333333333,
+            "total_chunks": 2,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 2
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "A street corner in a commercial or town area, outside of a building with a storefront.",
+                "time_of_day": "Night / Early Morning",
+                "people_count": 1,
+                "objects_detected": [
+                    "person",
+                    "building",
+                    "sidewalk",
+                    "road",
+                    "streetlights",
+                    "trash can",
+                    "parked cars",
+                    "large white object (resembling a cash register)"
+                ],
+                "activity_summary": "A single individual is walking quickly away from a building while carrying a large, heavy-looking white object.",
+                "description": "The surveillance footage, captured at approximately 02:45 AM on Sunday, October 4th, 2015, according to the timestamp, depicts an outdoor scene at a street corner. The area is dark, illuminated by artificial street and building lights. A single person, wearing a dark jacket and pants, is moving with urgency along a paved sidewalk, away from the building on the left. This individual is carrying a large, white, boxy object that appears to be a cash register or a small safe. The person's posture and quick pace suggest they are fleeing the scene. The background shows a quiet street with other buildings and parked vehicles.",
+                "actors": [
+                    "Person in a dark jacket and pants"
+                ],
+                "suspicious_objects": [
+                    "Large white box-like object (resembling a cash register or safe)"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "10.0s - 10.9s",
+                "anomaly_reason": "An individual is observed moving hurriedly from a commercial property during late-night hours (02:45 AM) while carrying an object consistent in size and shape with a cash register or safe. This combination of time, action, and object is highly indicative of a recent burglary or theft."
+            },
+            "chunk_metadata": {
+                "chunk_index": 1,
+                "start_time": 9.975535168195718,
+                "end_time": 10.873333333333333,
+                "duration": 0.8977981651376155
+            }
+        }
+    },
+    {
+        "source_video": "video_2",
+        "source_metadata": {
+            "filename": "video_2.mp4",
+            "total_duration": 47.8,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Indoors, in a poorly lit and confined space, possibly a backstage area, narrow corridor, or entryway of a building.",
+                "time_of_day": "Night, as indicated by the use of infrared or night-vision surveillance footage.",
+                "people_count": 3,
+                "objects_detected": [
+                    "suit jacket",
+                    "tie",
+                    "t-shirt",
+                    "chair"
+                ],
+                "activity_summary": "Two men are standing together when a third person is violently pushed or thrown into the scene, suggesting an assault.",
+                "description": "The sequence is captured from a high-angle, black-and-white surveillance camera in a dark, confined indoor space. Initially, two men are visible: one in a light-colored suit and another, closer to the camera, in a light-colored shirt. A third individual, wearing a t-shirt, is then abruptly and forcefully pushed into the frame from the right. This person stumbles forward, appearing off-balance, while the two initial men observe. The man in the suit gestures and watches as the event unfolds. The overall interaction is aggressive and indicates a physical altercation is in progress.",
+                "actors": [
+                    "Man in light-colored suit",
+                    "Man in light-colored shirt",
+                    "Person in t-shirt being pushed"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "0.0s - 10.0s",
+                "anomaly_reason": "The sequence was flagged due to the sudden, violent, and non-consensual motion of a person being forcefully pushed or thrown into the frame, which is a clear indicator of a physical assault or altercation."
+            },
+            "chunk_metadata": {
+                "chunk_index": 0,
+                "start_time": 0.0,
+                "end_time": 10.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_2",
+        "source_metadata": {
+            "filename": "video_2.mp4",
+            "total_duration": 47.8,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Stairwell or tiered seating area in a dimly lit indoor or outdoor venue, possibly a theater, bar, or stadium.",
+                "time_of_day": "Night, as indicated by the use of infrared or night-vision surveillance footage.",
+                "people_count": 4,
+                "objects_detected": [
+                    "stairs",
+                    "railing",
+                    "clothing (suit, shirt)"
+                ],
+                "activity_summary": "A seated man is suddenly attacked by two other men. A fourth individual intervenes, resulting in a multi-person physical altercation.",
+                "description": "The sequence captures a sudden and violent physical assault in a dimly lit stairwell or tiered seating area, recorded by a high-angle surveillance camera operating in night-vision mode. Initially, an older man in a light-colored suit is seated. He is abruptly attacked by a second man who lunges at him from a higher step. A third man quickly joins the assault, and together they physically overpower the first man, pulling him over a railing. A fourth man, also in a suit, then enters the frame from the left and becomes involved in the escalating brawl.",
+                "actors": [
+                    "Man in light-colored suit (initial victim)",
+                    "First attacker in light-colored shirt",
+                    "Second attacker joining from above",
+                    "Man in light-colored suit (intervener)"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "10.0s - 20.0s",
+                "anomaly_reason": "The sequence was flagged due to the detection of a sudden, violent physical assault involving multiple individuals. The rapid escalation from a static scene to a multi-person brawl constitutes a significant security threat."
+            },
+            "chunk_metadata": {
+                "chunk_index": 1,
+                "start_time": 10.0,
+                "end_time": 20.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_2",
+        "source_metadata": {
+            "filename": "video_2.mp4",
+            "total_duration": 47.8,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Unidentified outdoor or semi-enclosed area at night, possibly an alleyway, doorway, or next to a large vehicle.",
+                "time_of_day": "Night",
+                "people_count": 5,
+                "objects_detected": [
+                    "clothing",
+                    "wall/vehicle",
+                    "chair/stool"
+                ],
+                "activity_summary": "A physical altercation between two individuals escalates into a violent multi-person brawl, culminating in one person using a chair as a weapon.",
+                "description": "The sequence, captured by an infrared surveillance camera at night, documents a rapidly escalating violent assault. Initially, a man in a collared shirt and tie is seen physically overpowering another man. The scene quickly devolves as at least three other individuals join the altercation. One of the new assailants, entering from the right, picks up a chair or stool and raises it threateningly over their head before bringing it down on the initial group. The event is chaotic and violent, indicating a serious group assault in progress.",
+                "actors": [
+                    "man in collared shirt and tie",
+                    "man in light-colored shirt (initial victim)",
+                    "man with shaved head",
+                    "assailant with chair/stool",
+                    "fifth individual (partially visible)"
+                ],
+                "suspicious_objects": [
+                    "chair/stool (used as an improvised weapon)"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "20.0s - 30.0s",
+                "anomaly_reason": "The footage depicts a violent physical assault involving multiple individuals. The situation escalates with the introduction and use of an improvised weapon (a chair or stool), indicating a severe and immediate threat to safety."
+            },
+            "chunk_metadata": {
+                "chunk_index": 2,
+                "start_time": 20.0,
+                "end_time": 30.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_2",
+        "source_metadata": {
+            "filename": "video_2.mp4",
+            "total_duration": 47.8,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Interior of a vehicle or a small, confined space like an elevator",
+                "time_of_day": "Night",
+                "people_count": 3,
+                "objects_detected": [
+                    "clothing (suit, tie, shirt)",
+                    "vehicle interior (door frame, roof)"
+                ],
+                "activity_summary": "A violent physical altercation involving three individuals in a confined space.",
+                "description": "The surveillance footage, captured in monochrome via an infrared camera at night, depicts a violent physical altercation within a confined space, likely the interior of a vehicle. Three individuals are visible. One man, wearing a light-colored suit and tie, is actively and aggressively engaging with a second individual, pushing and possibly striking them. A third man, with a shaved head, is in the foreground and appears to be involved in the struggle, with dynamic movements including raised arms, suggesting he is either participating in the assault, defending himself, or attempting to intervene. The scene is chaotic, characterized by rapid movements and close-quarters physical contact.",
+                "actors": [
+                    "Man in suit and tie",
+                    "Man with shaved head",
+                    "Third individual being assaulted"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "30.0s - 40.0s",
+                "anomaly_reason": "The footage captures a clear and ongoing violent physical assault. Multiple individuals are engaged in a struggle within a confined space, indicating a high-risk security event such as an abduction, assault, or robbery in progress."
+            },
+            "chunk_metadata": {
+                "chunk_index": 3,
+                "start_time": 30.0,
+                "end_time": 40.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_2",
+        "source_metadata": {
+            "filename": "video_2.mp4",
+            "total_duration": 47.8,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Entrance to a building, likely a commercial establishment or office, viewed from a high-angle interior/exterior camera.",
+                "time_of_day": "Night",
+                "people_count": 2,
+                "objects_detected": [
+                    "Door",
+                    "Door frame",
+                    "Glass panel (broken)",
+                    "Debris"
+                ],
+                "activity_summary": "Two individuals forcibly break a glass panel on a door to gain unauthorized entry into a building.",
+                "description": "The sequence, captured by a high-angle, black-and-white surveillance camera at night, documents a forced entry. Initially, an individual wearing a light-colored long-sleeved shirt is seen shattering a glass panel on a door. Immediately following the breach, this individual and a second accomplice, wearing a light-colored t-shirt and shorts, enter the premises through the broken doorway. The second individual briefly stoops down near the point of entry before moving further inside. The actions are swift and deliberate, consistent with a burglary.",
+                "actors": [
+                    "Individual in light-colored long-sleeve shirt",
+                    "Individual in light-colored t-shirt and shorts"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "40.0s - 47.8s",
+                "anomaly_reason": "Forcible entry into a locked premises. An individual is observed actively breaking a glass panel on a door, followed by two subjects making an unauthorized entry, indicating a burglary in progress."
+            },
+            "chunk_metadata": {
+                "chunk_index": 4,
+                "start_time": 40.0,
+                "end_time": 47.8,
+                "duration": 7.799999999999997
+            }
+        }
+    },
+    {
+        "source_video": "video_3",
+        "source_metadata": {
+            "filename": "video_3.mp4",
+            "total_duration": 44.96666666666667,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Interior of a public bus, rear section",
+                "time_of_day": "Night",
+                "people_count": 1,
+                "objects_detected": [
+                    "bus seats",
+                    "handrails",
+                    "windows",
+                    "steps",
+                    "bag/backpack"
+                ],
+                "activity_summary": "A single passenger in an otherwise empty bus is bent over in the rear section, interacting with an object on the floor before moving downwards.",
+                "description": "The surveillance footage captures the interior of a public bus, viewed from a forward-facing camera looking towards the rear. The bus is empty of passengers except for one individual located in the elevated back section. The environment is illuminated by internal lights, while the windows show darkness, indicating it is nighttime. This person is seen hunched over, seemingly focused on an object on the floor near a seat. Over the sequence of frames, their posture changes as they move lower, appearing to either place/retrieve an item, or potentially collapse or hide. The ambiguity of this action in an isolated setting is the primary point of interest.",
+                "actors": [
+                    "Person in light-colored top"
+                ],
+                "suspicious_objects": [
+                    "Unidentified dark object on the floor"
+                ],
+                "critical_level": "Medium",
+                "chunk_time_range": "0.0s - 10.0s",
+                "anomaly_reason": "A lone individual in an empty bus is engaged in an ambiguous activity, bent over towards the floor for a sustained period. This could indicate the planting of a suspicious package, a medical emergency, or an attempt to conceal oneself, all of which are deviations from normal passenger behavior."
+            },
+            "chunk_metadata": {
+                "chunk_index": 0,
+                "start_time": 0.0,
+                "end_time": 10.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_3",
+        "source_metadata": {
+            "filename": "video_3.mp4",
+            "total_duration": 44.96666666666667,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Interior of a public city bus, rear section",
+                "time_of_day": "Night",
+                "people_count": 1,
+                "objects_detected": [
+                    "bus seats",
+                    "handrails",
+                    "windows",
+                    "interior lights",
+                    "backpack/bag",
+                    "clothing item"
+                ],
+                "activity_summary": "A single passenger seated in the rear of a nearly empty bus removes their upper garment, then stands and moves towards the back.",
+                "description": "The surveillance footage captures the interior rear section of a public bus during nighttime. The bus is sparsely occupied, with only one male passenger visible. The individual is initially seated in the elevated rear seating area. Over the course of the frames, the passenger leans forward, removes his shirt, and places it on the seat. He then stands up and moves towards the very back of the bus, partially obscuring himself from the camera's view. A dark bag or backpack is visible on the floor near his initial seating position.",
+                "actors": [
+                    "Male passenger in light-colored pants"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "Medium",
+                "chunk_time_range": "10.0s - 20.0s",
+                "anomaly_reason": "An individual exhibits erratic and unusual behavior by suddenly removing their shirt on a public bus at night. This action, combined with their subsequent movement to a more concealed area at the very back of the bus, is anomalous and could indicate potential public disturbance, a mental health issue, or preparation for an illicit act."
+            },
+            "chunk_metadata": {
+                "chunk_index": 1,
+                "start_time": 10.0,
+                "end_time": 20.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_3",
+        "source_metadata": {
+            "filename": "video_3.mp4",
+            "total_duration": 44.96666666666667,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Interior of a public transit bus, rear section",
+                "time_of_day": "Night",
+                "people_count": 1,
+                "objects_detected": [
+                    "bus seats",
+                    "handrails",
+                    "windows",
+                    "bag/backpack",
+                    "interior lights"
+                ],
+                "activity_summary": "A person, initially unseen, rises from the floor/seat area at the back of an empty bus and bends down towards an object on the floor.",
+                "description": "The footage captures the interior of a public bus, viewed from the front looking towards the rear. The bus is empty of passengers and appears to be operating at night, as indicated by the dark exterior and illuminated interior. A dark object, possibly a bag, is visible on the floor in the aisle of the raised rear section. Over the sequence, a person wearing light-colored clothing, who was previously lying down or concealed behind the rearmost seats, slowly gets up. The individual appears somewhat unsteady as they rise and then bends over to interact with the object on the floor.",
+                "actors": [
+                    "Person in light-colored clothing"
+                ],
+                "suspicious_objects": [
+                    "Unattended bag/backpack on the floor"
+                ],
+                "critical_level": "Medium",
+                "chunk_time_range": "20.0s - 30.0s",
+                "anomaly_reason": "A person suddenly appears from a concealed position (lying on the floor or behind seats) in an otherwise empty bus at night. This behavior is anomalous for a typical passenger and could indicate a medical issue, intoxication, or illicit activity such as hiding from authorities or tampering with an object."
+            },
+            "chunk_metadata": {
+                "chunk_index": 2,
+                "start_time": 20.0,
+                "end_time": 30.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_3",
+        "source_metadata": {
+            "filename": "video_3.mp4",
+            "total_duration": 44.96666666666667,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Interior of a public bus, specifically the upper deck near the stairwell.",
+                "time_of_day": "Night",
+                "people_count": 1,
+                "objects_detected": [
+                    "bus seats",
+                    "handrails",
+                    "stairs",
+                    "windows",
+                    "interior lights",
+                    "unidentified dark object/bag",
+                    "fire"
+                ],
+                "activity_summary": "A male passenger places an object at the top of the stairs on the upper deck of a bus and ignites it, causing a large fire before fleeing.",
+                "description": "The surveillance footage captures the interior of the upper deck of a public bus at night. A single male individual is observed at the top of the stairwell. He is seen placing and manipulating a large, dark object on the floor. Suddenly, the object erupts into a large, intense fire. The individual is seen reacting to the ignition and appears to flee the scene down the stairs as the fire grows, engulfing the area.",
+                "actors": [
+                    "Male passenger in light-colored shirt and patterned shorts"
+                ],
+                "suspicious_objects": [
+                    "Unidentified dark object/bag used as an incendiary device"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "30.0s - 40.0s",
+                "anomaly_reason": "Sudden ignition of a large fire, indicating a deliberate act of arson by a passenger on public transport. The passenger's actions of placing an object and the subsequent explosion/fire are the primary anomalies."
+            },
+            "chunk_metadata": {
+                "chunk_index": 3,
+                "start_time": 30.0,
+                "end_time": 40.0,
+                "duration": 10.0
+            }
+        }
+    },
+    {
+        "source_video": "video_3",
+        "source_metadata": {
+            "filename": "video_3.mp4",
+            "total_duration": 44.96666666666667,
+            "total_chunks": 5,
+            "chunk_duration": 10,
+            "anomalous_chunks_count": 5
+        },
+        "chunk_data": {
+            "overall_scene": {
+                "location": "Interior of a public bus, view from a high-angle camera looking towards the front.",
+                "time_of_day": "Night",
+                "people_count": 1,
+                "objects_detected": [
+                    "bus seats",
+                    "handrails",
+                    "windows",
+                    "interior lights",
+                    "fare box",
+                    "intense light source/flash"
+                ],
+                "activity_summary": "A sudden, intense flash of light erupts at the front of a bus. One person is standing near the source of the light.",
+                "description": "The surveillance footage captures the interior of a public bus from a high-angle camera positioned at the rear. The scene is illuminated by the bus's interior lights, indicating it is nighttime. The bus appears to be mostly empty, with rows of vacant seats visible. A single, indistinct figure is standing in the aisle near the front entrance. The critical event in this sequence is a sudden and extremely bright flash of white and yellow light originating from the very front of the bus, possibly near the driver's area or the front door. This light is so intense that it washes out the camera sensor, obscuring details and suggesting a high-energy event such as an explosion, electrical arc, or fire.",
+                "actors": [
+                    "one unidentified person standing near the front"
+                ],
+                "suspicious_objects": [
+                    "unidentified source of intense light/flash"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "40.0s - 45.0s",
+                "anomaly_reason": "A sudden, extremely intense flash of light, consistent with an explosion or fire, has occurred at the front of the bus. This represents an immediate and severe danger to the vehicle and any occupants."
+            },
+            "chunk_metadata": {
+                "chunk_index": 4,
+                "start_time": 40.0,
+                "end_time": 44.96666666666667,
+                "duration": 4.966666666666669
+            }
+        }
+    }
+]

@@ -1,0 +1,162 @@
+{
+    "video_metadata": {
+        "filename": "video_2.mp4",
+        "total_duration": 47.8,
+        "total_chunks": 5,
+        "chunk_duration": 10,
+        "anomalous_chunks_count": 5
+    },
+    "anomalous_chunks": [
+        {
+            "overall_scene": {
+                "location": "Indoors, in a poorly lit and confined space, possibly a backstage area, narrow corridor, or entryway of a building.",
+                "time_of_day": "Night, as indicated by the use of infrared or night-vision surveillance footage.",
+                "people_count": 3,
+                "objects_detected": [
+                    "suit jacket",
+                    "tie",
+                    "t-shirt",
+                    "chair"
+                ],
+                "activity_summary": "Two men are standing together when a third person is violently pushed or thrown into the scene, suggesting an assault.",
+                "description": "The sequence is captured from a high-angle, black-and-white surveillance camera in a dark, confined indoor space. Initially, two men are visible: one in a light-colored suit and another, closer to the camera, in a light-colored shirt. A third individual, wearing a t-shirt, is then abruptly and forcefully pushed into the frame from the right. This person stumbles forward, appearing off-balance, while the two initial men observe. The man in the suit gestures and watches as the event unfolds. The overall interaction is aggressive and indicates a physical altercation is in progress.",
+                "actors": [
+                    "Man in light-colored suit",
+                    "Man in light-colored shirt",
+                    "Person in t-shirt being pushed"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "0.0s - 10.0s",
+                "anomaly_reason": "The sequence was flagged due to the sudden, violent, and non-consensual motion of a person being forcefully pushed or thrown into the frame, which is a clear indicator of a physical assault or altercation."
+            },
+            "chunk_metadata": {
+                "chunk_index": 0,
+                "start_time": 0.0,
+                "end_time": 10.0,
+                "duration": 10.0
+            }
+        },
+        {
+            "overall_scene": {
+                "location": "Stairwell or tiered seating area in a dimly lit indoor or outdoor venue, possibly a theater, bar, or stadium.",
+                "time_of_day": "Night, as indicated by the use of infrared or night-vision surveillance footage.",
+                "people_count": 4,
+                "objects_detected": [
+                    "stairs",
+                    "railing",
+                    "clothing (suit, shirt)"
+                ],
+                "activity_summary": "A seated man is suddenly attacked by two other men. A fourth individual intervenes, resulting in a multi-person physical altercation.",
+                "description": "The sequence captures a sudden and violent physical assault in a dimly lit stairwell or tiered seating area, recorded by a high-angle surveillance camera operating in night-vision mode. Initially, an older man in a light-colored suit is seated. He is abruptly attacked by a second man who lunges at him from a higher step. A third man quickly joins the assault, and together they physically overpower the first man, pulling him over a railing. A fourth man, also in a suit, then enters the frame from the left and becomes involved in the escalating brawl.",
+                "actors": [
+                    "Man in light-colored suit (initial victim)",
+                    "First attacker in light-colored shirt",
+                    "Second attacker joining from above",
+                    "Man in light-colored suit (intervener)"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "10.0s - 20.0s",
+                "anomaly_reason": "The sequence was flagged due to the detection of a sudden, violent physical assault involving multiple individuals. The rapid escalation from a static scene to a multi-person brawl constitutes a significant security threat."
+            },
+            "chunk_metadata": {
+                "chunk_index": 1,
+                "start_time": 10.0,
+                "end_time": 20.0,
+                "duration": 10.0
+            }
+        },
+        {
+            "overall_scene": {
+                "location": "Unidentified outdoor or semi-enclosed area at night, possibly an alleyway, doorway, or next to a large vehicle.",
+                "time_of_day": "Night",
+                "people_count": 5,
+                "objects_detected": [
+                    "clothing",
+                    "wall/vehicle",
+                    "chair/stool"
+                ],
+                "activity_summary": "A physical altercation between two individuals escalates into a violent multi-person brawl, culminating in one person using a chair as a weapon.",
+                "description": "The sequence, captured by an infrared surveillance camera at night, documents a rapidly escalating violent assault. Initially, a man in a collared shirt and tie is seen physically overpowering another man. The scene quickly devolves as at least three other individuals join the altercation. One of the new assailants, entering from the right, picks up a chair or stool and raises it threateningly over their head before bringing it down on the initial group. The event is chaotic and violent, indicating a serious group assault in progress.",
+                "actors": [
+                    "man in collared shirt and tie",
+                    "man in light-colored shirt (initial victim)",
+                    "man with shaved head",
+                    "assailant with chair/stool",
+                    "fifth individual (partially visible)"
+                ],
+                "suspicious_objects": [
+                    "chair/stool (used as an improvised weapon)"
+                ],
+                "critical_level": "High",
+                "chunk_time_range": "20.0s - 30.0s",
+                "anomaly_reason": "The footage depicts a violent physical assault involving multiple individuals. The situation escalates with the introduction and use of an improvised weapon (a chair or stool), indicating a severe and immediate threat to safety."
+            },
+            "chunk_metadata": {
+                "chunk_index": 2,
+                "start_time": 20.0,
+                "end_time": 30.0,
+                "duration": 10.0
+            }
+        },
+        {
+            "overall_scene": {
+                "location": "Interior of a vehicle or a small, confined space like an elevator",
+                "time_of_day": "Night",
+                "people_count": 3,
+                "objects_detected": [
+                    "clothing (suit, tie, shirt)",
+                    "vehicle interior (door frame, roof)"
+                ],
+                "activity_summary": "A violent physical altercation involving three individuals in a confined space.",
+                "description": "The surveillance footage, captured in monochrome via an infrared camera at night, depicts a violent physical altercation within a confined space, likely the interior of a vehicle. Three individuals are visible. One man, wearing a light-colored suit and tie, is actively and aggressively engaging with a second individual, pushing and possibly striking them. A third man, with a shaved head, is in the foreground and appears to be involved in the struggle, with dynamic movements including raised arms, suggesting he is either participating in the assault, defending himself, or attempting to intervene. The scene is chaotic, characterized by rapid movements and close-quarters physical contact.",
+                "actors": [
+                    "Man in suit and tie",
+                    "Man with shaved head",
+                    "Third individual being assaulted"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "30.0s - 40.0s",
+                "anomaly_reason": "The footage captures a clear and ongoing violent physical assault. Multiple individuals are engaged in a struggle within a confined space, indicating a high-risk security event such as an abduction, assault, or robbery in progress."
+            },
+            "chunk_metadata": {
+                "chunk_index": 3,
+                "start_time": 30.0,
+                "end_time": 40.0,
+                "duration": 10.0
+            }
+        },
+        {
+            "overall_scene": {
+                "location": "Entrance to a building, likely a commercial establishment or office, viewed from a high-angle interior/exterior camera.",
+                "time_of_day": "Night",
+                "people_count": 2,
+                "objects_detected": [
+                    "Door",
+                    "Door frame",
+                    "Glass panel (broken)",
+                    "Debris"
+                ],
+                "activity_summary": "Two individuals forcibly break a glass panel on a door to gain unauthorized entry into a building.",
+                "description": "The sequence, captured by a high-angle, black-and-white surveillance camera at night, documents a forced entry. Initially, an individual wearing a light-colored long-sleeved shirt is seen shattering a glass panel on a door. Immediately following the breach, this individual and a second accomplice, wearing a light-colored t-shirt and shorts, enter the premises through the broken doorway. The second individual briefly stoops down near the point of entry before moving further inside. The actions are swift and deliberate, consistent with a burglary.",
+                "actors": [
+                    "Individual in light-colored long-sleeve shirt",
+                    "Individual in light-colored t-shirt and shorts"
+                ],
+                "suspicious_objects": [],
+                "critical_level": "High",
+                "chunk_time_range": "40.0s - 47.8s",
+                "anomaly_reason": "Forcible entry into a locked premises. An individual is observed actively breaking a glass panel on a door, followed by two subjects making an unauthorized entry, indicating a burglary in progress."
+            },
+            "chunk_metadata": {
+                "chunk_index": 4,
+                "start_time": 40.0,
+                "end_time": 47.8,
+                "duration": 7.799999999999997
+            }
+        }
+    ],
+    "summary": "A 47.8-second video analysis identified a high critical security threat level, with five suspicious incidents detected across all five analyzed chunks. The events unfolded chronologically, beginning with a violent push or throw of an individual into a scene involving two other men, indicative of an assault. This was followed by a seated man being attacked by two individuals, escalating into a multi-person physical altercation upon the intervention of a fourth person. The sequence culminated in a two-person physical altercation rapidly escalating into a violent multi-person brawl, where a chair was utilized as a weapon."
+}
