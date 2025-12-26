@@ -45,9 +45,8 @@ MODEL_NAME_FLASH = 'gemini-2.5-flash'
 
 UPLOAD_FOLDER = "uploaded_videos"
 ANOMALY_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "anomaly")
-TEMP_SEGMENTS_FOLDER = os.path.join(UPLOAD_FOLDER, "segments")
 
-for folder in [UPLOAD_FOLDER, ANOMALY_FOLDER, TEMP_SEGMENTS_FOLDER]:
+for folder in [UPLOAD_FOLDER, ANOMALY_FOLDER]:
     if not os.path.exists(folder):
         os.makedirs(folder)
 
@@ -282,7 +281,6 @@ async def get_video_summary(video_name: str):
             analysis_data = json.load(f)
         
         summary_content = analysis_data.get("summary")
-        
         # Check if summary has real content
         if (summary_content and 
             len(summary_content) > 50 and  # Must be substantial content
@@ -742,7 +740,14 @@ async def get_video_segment(video_name: str, start: float, end: float):
 
     # Create distinct filename for this segment
     segment_filename = f"{video_name}_{start:.1f}_{end:.1f}.mp4"
-    segment_path = os.path.join(TEMP_SEGMENTS_FOLDER, segment_filename)
+    # Ensure TEMP_SEGMENTS_FOLDER exists (it might have been removed too or never created if I didn't add it to the top loop)
+    # The user removed the top loop change too in Step 68!
+    # I need to handle that.
+    segments_folder = os.path.join(UPLOAD_FOLDER, "segments")
+    if not os.path.exists(segments_folder):
+        os.makedirs(segments_folder)
+        
+    segment_path = os.path.join(segments_folder, segment_filename)
 
     # If segment already exists, serve it
     if os.path.exists(segment_path):

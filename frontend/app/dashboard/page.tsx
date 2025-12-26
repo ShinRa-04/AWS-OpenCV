@@ -160,13 +160,13 @@ export default function DashboardPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {[{ name: "Main Entrance", status: "active" },
-                      { name: "Parking Lot", status: "active" },
-                      { name: "Server Room", status: "maintenance" },
-                      { name: "Reception", status: "active" },
-                      { name: "Back Gate", status: "active" },
-                      { name: "Hallway 2F", status: "active" },
-                      { name: "Warehouse", status: "active" },
-                      { name: "Lobby", status: "active" },
+                    { name: "Parking Lot", status: "active" },
+                    { name: "Server Room", status: "maintenance" },
+                    { name: "Reception", status: "active" },
+                    { name: "Back Gate", status: "active" },
+                    { name: "Hallway 2F", status: "active" },
+                    { name: "Warehouse", status: "active" },
+                    { name: "Lobby", status: "active" },
                     ].map((cam) => (
                       <div
                         key={cam.name}
@@ -174,13 +174,12 @@ export default function DashboardPage() {
                       >
                         <div className="flex items-center gap-2">
                           <div
-                            className={`w-3 h-3 rounded-full ${
-                              cam.status === "active"
-                                ? "bg-blue-700"
-                                : cam.status === "maintenance"
+                            className={`w-3 h-3 rounded-full ${cam.status === "active"
+                              ? "bg-blue-700"
+                              : cam.status === "maintenance"
                                 ? "bg-yellow-500"
                                 : "bg-gray-400"
-                            }`}
+                              }`}
                           />
                           <span className="text-gray-900">{cam.name}</span>
                         </div>
@@ -190,12 +189,12 @@ export default function DashboardPage() {
                           className={cn(
                             "text-sm font-medium px-2 py-1 rounded-md capitalize",
                             cam.status === "active" &&
-                              "bg-blue-100 text-blue-600",
+                            "bg-blue-100 text-blue-600",
                             cam.status === "maintenance" &&
-                              "bg-yellow-300/40 text-yellow-600",
+                            "bg-yellow-300/40 text-yellow-600",
                             cam.status !== "active" &&
-                              cam.status !== "maintenance" &&
-                              "bg-gray-100 text-gray-600"
+                            cam.status !== "maintenance" &&
+                            "bg-gray-100 text-gray-600"
                           )}
                         >
                           {cam.status}
@@ -211,11 +210,24 @@ export default function DashboardPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {/* Video Placeholder */}
-                    <div className="w-full h-48 bg-gray-200 rounded flex items-center justify-center text-gray-500">
-                      <Camera className="w-10 h-10 mr-2 text-blue-700" />
-                      Video Feed Placeholder
-                    </div>
 
+
+                    {[{
+                      msg: "Unauthorized access detected - Main Entrance",
+                      time: "10:45 AM",
+                    }, { msg: "Camera 3 offline - Server Room", time: "09:30 AM" },
+                    { msg: "After hours movement - Parking Lot", time: "08:15 AM" }
+                    ].map((alert, i) => (
+                      <div
+                        key={i}
+                        className="p-2 bg-blue-50 border border-blue-100 rounded"
+                      >
+                        <p className="text-gray-900">{alert.msg}</p>
+                        <p className="text-sm text-gray-500 flex items-center gap-1">
+                          <Clock className="w-3 h-3 text-blue-700" /> {alert.time}
+                        </p>
+                      </div>
+                    ))}
                     {[{
                       msg: "Unauthorized access detected - Main Entrance",
                       time: "10:45 AM",

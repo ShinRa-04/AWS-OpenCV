@@ -38,7 +38,6 @@ if __name__ == "__main__":
     analysis_process = start_service("indexing_video", 8000, "Video Analysis Service")
     
     # Wait a moment
-    time.sleep(2)
     
     # Start search service (port 8001)  
     search_process = start_service("search", 8001, "Search Service")
@@ -56,7 +55,6 @@ if __name__ == "__main__":
     try:
         # Keep both processes running
         while True:
-            time.sleep(1)
             
             # Check if processes are still running
             if analysis_process.poll() is not None:

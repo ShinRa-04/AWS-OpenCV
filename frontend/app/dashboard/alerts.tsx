@@ -67,7 +67,7 @@ export default function Alerts() {
       if (!uploadRes.ok) throw new Error(`Upload failed: ${uploadRes.statusText}`)
       const uploadData = await uploadRes.json()
       const videoName = uploadData.filename.split('.')[0]
-
+      await new Promise(resolve => setTimeout(resolve, 5000));
       // Polling for analysis
       let attempts = 0
       const maxAttempts = 30 // 30 * 2s = 60s
@@ -143,60 +143,7 @@ export default function Alerts() {
         )}
       </div>
 
-      {/* Recent Alerts Section */}
-      <div className="space-y-6">
-        <h3 className="text-xl font-semibold text-gray-800">Recent Alerts</h3>
-        {sampleAlerts.map((alert) => (
-          <div
-            key={alert.id}
-            className="bg-white shadow-md border border-blue-100 rounded-lg p-6 flex gap-6 min-h-[200px]"
-          >
-            {/* Left: Video Placeholder */}
-            <div className="relative w-1/2 min-h-[150px] bg-gray-200 rounded flex items-center justify-center text-gray-500">
-              Video Placeholder
-              <div className="absolute top-2 right-2 flex gap-2">
-                {/* Expand Button */}
-                <button
-                  onClick={() => setExpandedAlert(alert)}
-                  className="p-2 bg-white shadow rounded hover:bg-gray-100"
-                >
-                  <Expand className="w-4 h-4 text-gray-600" />
-                </button>
 
-                {/* Download Button */}
-                <button className="p-2 bg-white shadow rounded hover:bg-gray-100">
-                  <Download className="w-4 h-4 text-gray-600" />
-                </button>
-              </div>
-            </div>
-
-            {/* Right: Text Section */}
-            <div className="flex-1 flex flex-col">
-              {/* Title Row */}
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl">{alert.emoji}</span>
-                <h3 className="text-lg font-bold text-gray-900">
-                  {alert.title} – {alert.location}
-                </h3>
-                <span className="text-sm text-gray-500 ml-auto">{alert.camera}</span>
-              </div>
-
-              {/* Description */}
-              <p className="text-gray-700 flex-1">
-                This alert indicates <strong>{alert.title}</strong> detected at{" "}
-                <strong>{alert.location}</strong> using{" "}
-                <strong>{alert.camera}</strong>. Please review the recorded footage and
-                take necessary action.
-              </p>
-
-              {/* Footer Row */}
-              <div className="flex justify-between items-center mt-4">
-                <span className="text-sm text-gray-500">{alert.time}</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
 
       {/* Expanded Video Overlay */}
       {expandedAlert && (
